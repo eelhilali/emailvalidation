@@ -21,7 +21,8 @@ namespace EmailValidation.Tests
             "js@proseware.com9",//10
             "j.s@server1.proseware.com",//11
             "\"j\\\"s\\\"\"@proseware.com",//12
-            "js@contoso.中国"//13
+            "js@contoso.中国",//13
+            "example+a@gmail.com"//14
         };
 
         [TestMethod]
@@ -145,6 +146,15 @@ namespace EmailValidation.Tests
         public void Return_true_when_the_email_is_email13()
         {
             var emailAddress = emailAddresses[13];
+
+            var result = RegexUtilities.IsValidEmail(emailAddress);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void Return_true_when_the_email_is_email14()
+        {
+            var emailAddress = emailAddresses[14];
 
             var result = RegexUtilities.IsValidEmail(emailAddress);
             Assert.IsTrue(result);
